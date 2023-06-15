@@ -6,9 +6,10 @@ const FirstPage = ({cityInput, setCityInput, handleCity}) => {
     <div className="firstPage__block">
         <h1 className="firstPage__title">WHEATHER APP</h1>
         <WeatherInput 
-        cityInput={cityInput} 
-        setCityInput={setCityInput} 
-        handleCity={handleCity}
+            cityInput={cityInput} 
+            setCityInput={setCityInput} 
+            handleCity={handleCity}
+            width={500}
         />
     </div>
   )

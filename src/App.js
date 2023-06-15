@@ -1,8 +1,7 @@
 import {useState, useRef, useEffect} from 'react'
-import WeatherInput from './components/WeatherInput'
 import WeatherService from './API/WeatherService'
-import WeatherBlock from './components/WeatherBlock'
 import FirstPage from './components/FirstPage'
+import WeatherActiveApp from './components/WeatherActiveApp'
 
 function App() {
   const [appIsActive, setAppIsActive] = useState(false)
@@ -24,6 +23,7 @@ function App() {
 
   async function fetchData() {
       try {
+          console.log('request')
           const data = metric ? await WeatherService.getDataGeneral(city) : await WeatherService.getDataUS(city);
           setWeatherData(data);
       } catch (e) {
@@ -50,7 +50,9 @@ function App() {
       <div className="container">
 
         {appIsActive ? (
-          <WeatherInput 
+          <WeatherActiveApp 
+            weatherData={weatherData} 
+            city={city}
             cityInput={cityInput} 
             setCityInput={setCityInput} 
             handleCity={handleCity}
@@ -62,8 +64,6 @@ function App() {
             handleCity={handleCity}
           />
         )}
-
-        {Object.keys(weatherData).length === 0 ? <div>Not found</div> : <WeatherBlock city={city} weatherData={weatherData} />}
       </div>
     </div>
   );

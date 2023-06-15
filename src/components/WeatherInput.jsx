@@ -1,8 +1,12 @@
 import React from 'react'
 
-const WeatherInput = ({cityInput, setCityInput, handleCity}) => {
+const WeatherInput = ({cityInput, setCityInput, handleCity, width}) => {
   return (
-    <form className="firstPage__form form" onSubmit={(e) => handleCity(e)}>
+    <form 
+        className="form" 
+        onSubmit={(e) => handleCity(e)}
+        style={{width: width}}
+    >
         <label className="form__label">
             <input 
                 type="text" 
