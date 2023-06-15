@@ -6,6 +6,8 @@ import { getValidTime } from '../utils/getValidTime'
 import humidity from '../assets/humidity.svg'
 import pressure from '../assets/pressure.svg'
 import wind from '../assets/wind.svg'
+import sunset from '../assets/sunset.svg'
+import sunrise from '../assets/sunrise.svg'
 
 const WeatherDashboard = ({city, weatherData}) => {
   const data = {
@@ -24,7 +26,7 @@ const WeatherDashboard = ({city, weatherData}) => {
       windDirection: getWindDirectionName(weatherData.wind.deg),
     },
     graficInfo: {
-      description: (weatherData.weather[0].description).toUpperCase(),
+      description: (weatherData.weather[0].description),
       icon: `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
     },
     sunState: {
@@ -77,8 +79,17 @@ const WeatherDashboard = ({city, weatherData}) => {
           </div>
 
           <div className="sunState__block">
-            <h1>Sunrise: {data.sunState.sunrise}</h1>
-            <h1>Sunset: {data.sunState.sunset}</h1>
+            <div className="sunState__item">
+              <h1>Sunrise</h1>
+              <img src={sunrise} alt="" />
+              <h1>{data.sunState.sunrise}</h1>
+            </div>
+
+            <div className="sunState__item">
+              <h1>Sunset</h1>
+              <img src={sunset} alt="" />
+              <h1>{data.sunState.sunset}</h1>
+            </div>
           </div>
         </div>
     </div>
