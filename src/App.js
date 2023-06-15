@@ -42,7 +42,7 @@ function App() {
     }
 
     e.preventDefault()
-    setCity(cityInput)
+    setCity(cityInput.split('-').join(' '))
     setCityInput('')
   }
 

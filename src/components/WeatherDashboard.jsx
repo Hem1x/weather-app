@@ -35,13 +35,15 @@ const WeatherDashboard = ({city, weatherData}) => {
   return (
     <div>
         <div className="temp__block">
-          <div className="info">
+          <div className="localInfo">
             <h1>{data.city}</h1>
-            <h1>{data.dateString}</h1>
+            <p>{data.dateString}</p>
           </div>
 
           <div className="tempInfo">
-            <h3>{data.temp.tempMax}/{data.temp.tempMin}</h3>
+            <h2>
+              <span className='min'>{data.temp.tempMin}</span> / <span className='max'>{data.temp.tempMax}</span> 
+            </h2>
             <h1>{data.temp.tempCurrent}</h1>
             <p>Feels like {data.temp.feelsLike}</p>
           </div>
