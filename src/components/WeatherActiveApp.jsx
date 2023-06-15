@@ -1,6 +1,6 @@
 import React from 'react'
 import WeatherInput from './WeatherInput'
-import WeatherBlock from './WeatherBlock'
+import WeatherDashboard from './WeatherDashboard'
 
 const WeatherActiveApp = ({weatherData, city, cityInput, setCityInput, handleCity}) => {
   return (
@@ -12,7 +12,12 @@ const WeatherActiveApp = ({weatherData, city, cityInput, setCityInput, handleCit
         width={'100%'}
       />
 
-      {Object.keys(weatherData).length === 0 ? <div>Not found</div> : <WeatherBlock city={city} weatherData={weatherData} />}
+      {
+        Object.keys(weatherData).length === 0 ? 
+          <div style={{color: "white"}}>Not found</div> 
+          : 
+          <WeatherDashboard weatherData={weatherData} />
+      }
     </>
   )
 }

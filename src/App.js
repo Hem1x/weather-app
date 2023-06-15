@@ -28,6 +28,7 @@ function App() {
           setWeatherData(data);
       } catch (e) {
           console.log('error')
+          setWeatherData({})
       }
   }
 
