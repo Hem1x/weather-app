@@ -3,6 +3,9 @@ import { getCurrentDate } from '../utils/getCurrentDate'
 import { getValidTemperature } from '../utils/getValidTemperature'
 import { getWindDirectionName } from '../utils/getWindDirectionName'
 import { getValidTime } from '../utils/getValidTime'
+import humidity from '../assets/humidity.svg'
+import pressure from '../assets/pressure.svg'
+import wind from '../assets/wind.svg'
 
 const WeatherDashboard = ({city, weatherData}) => {
   const data = {
@@ -50,9 +53,20 @@ const WeatherDashboard = ({city, weatherData}) => {
         </div>
 
         <div className="meteoParams__block">
-          <h1>{data.meteoParams.humidity}%</h1>
-          <h1>{data.meteoParams.windSpeed} MPS {data.meteoParams.windDirection}</h1>
-          <h1>{data.meteoParams.pressure} mm Hg</h1>
+          <div className="meteoParams__item">
+            <img src={humidity} alt="" />
+            <h1>{data.meteoParams.humidity}%</h1>
+          </div>
+
+          <div className="meteoParams__item">
+            <img src={wind} alt="" />
+            <h1>{data.meteoParams.windSpeed} MPS {data.meteoParams.windDirection}</h1>
+          </div>
+
+          <div className="meteoParams__item">
+            <img src={pressure} alt="" />
+            <h1>{data.meteoParams.pressure} mm Hg</h1>
+          </div>
         </div>
 
         <div className="extraInfo__block">
