@@ -27,7 +27,8 @@ const WeatherDashboard = ({city, weatherData}) => {
     sunState: {
       sunrise: getValidTime(weatherData.sys.sunrise),
       sunset: getValidTime(weatherData.sys.sunset)
-    }
+    },
+    rain:  weatherData.rain ? 'rain...' : '',
   }
 
 
@@ -56,6 +57,7 @@ const WeatherDashboard = ({city, weatherData}) => {
           <div className="icon__block">
             <h1>{data.graficInfo.description}</h1>
             <img src={`${data.graficInfo.icon}`} alt="" />
+            <h1>{data.rain}</h1>
           </div>
 
           <div className="sunState__block">
