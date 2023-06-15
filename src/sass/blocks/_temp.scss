@@ -2,20 +2,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.25);
 
-    padding: 32px 70px;
+    padding: 1.5vw 70px;
     margin-bottom: 10px;
 
     .localInfo {
         h1 {
             font-weight: 700;
-            font-size: 100px;
+            font-size: 5vw;
         }
 
         p {
-            font-size: 50px;
+            font-size: 2vw;
         }
     }
 
@@ -23,12 +24,12 @@
         text-align: right;
 
         h1 {
-            font-size: 150px;
+            font-size: 5vw;
             font-weight: 900;
         }
 
         h2 {
-            font-size: 50px;
+            font-size: 2vw;
             font-weight: 700;
 
             .max {
@@ -41,7 +42,7 @@
         }
 
         p {
-            font-size: 30px;
+            font-size: 1.5vw;
         }
     }
 }

@@ -1,10 +1,11 @@
 .extraInfo__block {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: .75fr 1fr;
     grid-gap: 10px;
+    flex-wrap: wrap;
 
     > div {
-        font-size: 40px;
+        font-size: 2vw;
         font-weight: 700;
 
         padding: 32px 70px;
@@ -16,13 +17,14 @@
     .icon__block {
         text-align: center;
         img {
-            width: 250px;
+            width: 10vw;
             margin: 0 auto;
         }
     }
 
     .sunState__block {
         display: flex;
+        padding: .5vw 3.5vw;
         justify-content: space-around;
 
         .sunState__item {
@@ -30,6 +32,10 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
+            img {
+                width: 10vw;
+            }
         }
     }
 }
