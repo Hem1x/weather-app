@@ -47,26 +47,27 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="container">
+      <div className="App">
+        <div className="container">
 
-        {appIsActive ? (
-          <WeatherActiveApp 
-            weatherData={weatherData} 
-            city={city}
-            cityInput={cityInput} 
-            setCityInput={setCityInput} 
-            handleCity={handleCity}
-          />
-        ) : (
-          <FirstPage 
-            cityInput={cityInput} 
-            setCityInput={setCityInput} 
-            handleCity={handleCity}
-          />
-        )}
+          {appIsActive ? (
+            <WeatherActiveApp 
+              weatherData={weatherData} 
+              city={city}
+              cityInput={cityInput} 
+              setCityInput={setCityInput} 
+              handleCity={handleCity}
+            />
+          ) : (
+            <FirstPage 
+              cityInput={cityInput} 
+              setCityInput={setCityInput} 
+              handleCity={handleCity}
+            />
+          )}
+        </div>
       </div>
-    </div>
+
   );
 }
 

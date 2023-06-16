@@ -1,6 +1,7 @@
 import React from 'react'
 
 const WeatherInput = ({cityInput, setCityInput, handleCity, width}) => {
+
   return (
     <form 
         className="form" 

@@ -14,7 +14,14 @@ const WeatherActiveApp = ({weatherData, city, cityInput, setCityInput, handleCit
 
       {
         Object.keys(weatherData).length === 0 ? 
-          <div style={{color: "white"}}>Not found</div> 
+          <div style={{
+            color: "white",
+            fontSize: '2vw',
+            textAlign: 'center',
+            marginTop: '5vw'
+          }}>
+              *Maybe you made a mistake*
+          </div> 
           : 
           <WeatherDashboard weatherData={weatherData} />
       }
