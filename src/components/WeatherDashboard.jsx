@@ -39,12 +39,16 @@ const WeatherDashboard = ({city, weatherData}) => {
 
   return (
     <div>
+      {/* Блок с температурой */}
         <div className="temp__block">
+
+          {/* Локация, Время запроса */}
           <div className="localInfo">
             <h1>{data.city}</h1>
             <p>{data.dateString}</p>
           </div>
 
+          {/* Температура */}
           <div className="tempInfo">
             <h2>
               <span className='min'>{data.temp.tempMin}</span> / <span className='max'>{data.temp.tempMax}</span> 
@@ -54,30 +58,39 @@ const WeatherDashboard = ({city, weatherData}) => {
           </div>
         </div>
 
+      {/* Блок метеопараметров */}
         <div className="meteoParams__block">
+
+          {/* Влажность */}
           <div className="meteoParams__item">
             <img src={humidity} alt="" />
             <h1>{data.meteoParams.humidity}%</h1>
           </div>
 
+          {/* Ветер */}
           <div className="meteoParams__item">
             <img src={wind} alt="" />
             <h1>{data.meteoParams.windSpeed} MPS {data.meteoParams.windDirection}</h1>
           </div>
 
+          {/* Давление */}
           <div className="meteoParams__item">
             <img src={pressure} alt="" />
             <h1>{data.meteoParams.pressure} mm Hg</h1>
           </div>
         </div>
 
+      {/* Блок дополнительной информации */}
         <div className="extraInfo__block">
+
+          {/* Графическая информация */}
           <div className="icon__block">
             <h1>{data.graficInfo.description}</h1>
             <img src={`${data.graficInfo.icon}`} alt="" />
             <h1>{data.rain}</h1>
           </div>
 
+          {/* Закат и Рассвет */}
           <div className="sunState__block">
             <div className="sunState__item">
               <h1>Sunrise</h1>

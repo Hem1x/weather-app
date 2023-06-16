@@ -5,6 +5,7 @@ import WeatherDashboard from './WeatherDashboard'
 const WeatherActiveApp = ({weatherData, city, cityInput, setCityInput, handleCity}) => {
   return (
     <>
+    {/* Компонент поиска города */}
       <WeatherInput 
         cityInput={cityInput} 
         setCityInput={setCityInput} 
@@ -12,6 +13,7 @@ const WeatherActiveApp = ({weatherData, city, cityInput, setCityInput, handleCit
         width={'100%'}
       />
 
+    {/* Проверка "Существует ли запрошенный город?" */}
       {
         Object.keys(weatherData).length === 0 ? 
           <div style={{
