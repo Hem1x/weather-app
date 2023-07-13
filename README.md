@@ -35,3 +35,7 @@ npm install
 ```
 npm start
 ```
+
+## Ссылка на проект
+
+https://weather-app-nine-rouge.vercel.app/
