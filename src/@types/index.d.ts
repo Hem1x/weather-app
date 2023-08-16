@@ -62,3 +62,29 @@ export interface Sys {
   sunrise: number;
   sunset: number;
 }
+
+export interface ICustomApiData {
+  dateString: string;
+  city: string;
+  temp: {
+    tempCurrent: string;
+    feelsLike: string;
+    tempMax: string;
+    tempMin: string;
+  };
+  meteoParams: {
+    humidity: number;
+    pressure: number;
+    windSpeed: number;
+    windDirection: string;
+  };
+  graficInfo: {
+    description: string;
+    icon: string;
+  };
+  sunState: {
+    sunrise: string;
+    sunset: string;
+  };
+  rain: string;
+}

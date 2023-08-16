@@ -1,19 +1,20 @@
-import { handleCityType, setCityInputType } from '@types';
-import React from 'react';
+import { IMyContext, MyContext } from 'App';
+import React, { useContext } from 'react';
+import NotFoundBlock from './NotFoundBlock';
 
 interface WeatherInputProps {
-  cityInput: string;
-  setCityInput: setCityInputType;
-  handleCity: handleCityType;
   width: string | number;
 }
 
-const WeatherInput: React.FC<WeatherInputProps> = ({
-  cityInput,
-  setCityInput,
-  handleCity,
-  width,
-}) => {
+const WeatherInput: React.FC<WeatherInputProps> = ({ width }) => {
+  const myContext = useContext<IMyContext | null>(MyContext);
+
+  if (!myContext) {
+    return <NotFoundBlock />;
+  }
+
+  const { cityInput, handleCity, setCityInput } = myContext!;
+
   return (
     <form className="form" onSubmit={(e) => handleCity(e)} style={{ width: width }}>
       <label className="form__label">

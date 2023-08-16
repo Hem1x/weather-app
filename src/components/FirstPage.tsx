@@ -12,12 +12,7 @@ const FirstPage: React.FC<FirstPageProps> = ({ cityInput, setCityInput, handleCi
   return (
     <div className="firstPage__block">
       <h1 className="firstPage__title">WHEATHER APP</h1>
-      <WeatherInput
-        cityInput={cityInput}
-        setCityInput={setCityInput}
-        handleCity={handleCity}
-        width={500}
-      />
+      <WeatherInput width={500} />
     </div>
   );
 };

@@ -21,12 +21,7 @@ const WeatherActiveApp: React.FC<WeatherActiveAppProps> = ({
   return (
     <>
       {/* Компонент поиска города */}
-      <WeatherInput
-        cityInput={cityInput}
-        setCityInput={setCityInput}
-        handleCity={handleCity}
-        width={'100%'}
-      />
+      <WeatherInput width={'100%'} />
 
       {/* Проверка "Существует ли запрошенный город?" */}
       {Object.keys(weatherData).length === 0 ? (
@@ -40,7 +35,7 @@ const WeatherActiveApp: React.FC<WeatherActiveAppProps> = ({
           *Maybe you made a mistake*
         </div>
       ) : (
-        <WeatherDashboard weatherData={weatherData} />
+        <WeatherDashboard />
       )}
     </>
   );
