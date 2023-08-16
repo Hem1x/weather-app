@@ -8,16 +8,21 @@ import pressure from '../assets/pressure.svg';
 import wind from '../assets/wind.svg';
 import sunset from '../assets/sunset.svg';
 import sunrise from '../assets/sunrise.svg';
+import { IApi } from '@types';
 
-const WeatherDashboard = ({ city, weatherData }) => {
+interface WeatherDashboardProps {
+  weatherData: IApi;
+}
+
+const WeatherDashboard: React.FC<WeatherDashboardProps> = ({ weatherData }) => {
   const data = {
     dateString: getCurrentDate(),
     city: weatherData.name.toUpperCase(),
     temp: {
-      tempCurrent: getValidTemperature(weatherData.main.temp.toFixed(0)),
-      feelsLike: getValidTemperature(weatherData.main.feels_like.toFixed(0)),
-      tempMax: getValidTemperature(weatherData.main.temp_max.toFixed(0)),
-      tempMin: getValidTemperature(weatherData.main.temp_min.toFixed(0)),
+      tempCurrent: getValidTemperature(Number(weatherData.main.temp.toFixed(0))),
+      feelsLike: getValidTemperature(Number(weatherData.main.feels_like.toFixed(0))),
+      tempMax: getValidTemperature(Number(weatherData.main.temp_max.toFixed(0))),
+      tempMin: getValidTemperature(Number(weatherData.main.temp_min.toFixed(0))),
     },
     meteoParams: {
       humidity: weatherData.main.humidity,

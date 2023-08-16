@@ -2,15 +2,15 @@ import { useState, useRef, useEffect } from 'react';
 import WeatherService from './API/WeatherService';
 import FirstPage from './components/FirstPage';
 import WeatherActiveApp from './components/WeatherActiveApp';
+import { IApi } from '@types';
 
 function App() {
   const [appIsActive, setAppIsActive] = useState(false);
 
   const [cityInput, setCityInput] = useState('');
   const [city, setCity] = useState('');
-  const [metric, setMetric] = useState(true);
 
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState<IApi>();
 
   const isFirstRender = useRef(true);
   const isFirstSubmit = useRef(true);
@@ -24,20 +24,17 @@ function App() {
     async function fetchData() {
       try {
         console.log('request');
-        const data = metric
-          ? await WeatherService.getDataGeneral(city)
-          : await WeatherService.getDataUS(city);
+        const data = await WeatherService.getDataGeneral(city);
         setWeatherData(data);
       } catch (e) {
         console.log('error');
-        setWeatherData({});
       }
     }
 
     fetchData();
-  }, [city, metric]);
+  }, [city]);
 
-  const handleCity = (e) => {
+  const handleCity = (e: React.FormEvent<HTMLFormElement>) => {
     if (isFirstSubmit) {
       setAppIsActive(true);
       isFirstSubmit.current = false;
@@ -51,7 +48,7 @@ function App() {
   return (
     <div className="App">
       <div className="wrapper">
-        {appIsActive ? (
+        {appIsActive && weatherData !== undefined ? (
           <WeatherActiveApp
             weatherData={weatherData}
             city={city}

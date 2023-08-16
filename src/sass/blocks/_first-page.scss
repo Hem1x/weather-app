@@ -1,17 +1,24 @@
 .firstPage__block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15vw;
 
-    margin-top: 15vw;
+  .firstPage__title {
+    margin-bottom: 20px;
+    font-weight: 900;
+    font-size: 5vw;
+    text-shadow: 0 2px 10px #000;
+    color: #fff;
 
-    .firstPage__title {
-        font-size: 5vw;
-        color: #fff;
-        font-weight: 900;
-        text-shadow: 0px 2px 10px #000000;
-
-        margin-bottom: 20px;
+    @media (max-width: 1000px) {
+      font-size: 8vw;
     }
+
+    @media (max-width: 620px) {
+      font-size: 3rem;
+      text-align: center;
+    }
+  }
 }
