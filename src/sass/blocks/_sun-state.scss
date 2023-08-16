@@ -25,9 +25,22 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      font-size: 3rem;
+
+      @media (max-width: 1440px) {
+        font-size: 2rem;
+      }
 
       img {
-        width: 7rem;
+        width: 13rem;
+
+        @media (max-width: 1024px) {
+          width: 8rem;
+        }
+
+        @media (max-width: 768px) {
+          width: 7rem;
+        }
       }
     }
   }
