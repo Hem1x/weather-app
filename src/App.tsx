@@ -62,19 +62,9 @@ function App() {
         <div className="App">
           <div className="wrapper">
             {appIsActive && weatherData !== undefined ? (
-              <WeatherActiveApp
-                weatherData={weatherData}
-                city={city}
-                cityInput={cityInput}
-                setCityInput={setCityInput}
-                handleCity={handleCity}
-              />
+              <WeatherActiveApp weatherData={weatherData} />
             ) : (
-              <FirstPage
-                cityInput={cityInput}
-                setCityInput={setCityInput}
-                handleCity={handleCity}
-              />
+              <FirstPage />
             )}
           </div>
         </div>

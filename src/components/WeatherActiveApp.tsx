@@ -1,23 +1,13 @@
 import React from 'react';
 import WeatherInput from './WeatherInput';
 import WeatherDashboard from './WeatherDashboard';
-import { IApi, handleCityType, setCityInputType } from '@types';
+import { IApi } from '@types';
 
 interface WeatherActiveAppProps {
   weatherData: IApi;
-  city: string;
-  cityInput: string;
-  setCityInput: setCityInputType;
-  handleCity: handleCityType;
 }
 
-const WeatherActiveApp: React.FC<WeatherActiveAppProps> = ({
-  weatherData,
-  city,
-  cityInput,
-  setCityInput,
-  handleCity,
-}) => {
+const WeatherActiveApp: React.FC<WeatherActiveAppProps> = ({ weatherData }) => {
   return (
     <>
       {/* Компонент поиска города */}
