@@ -1,73 +1,69 @@
-import {useState, useRef, useEffect} from 'react'
-import WeatherService from './API/WeatherService'
-import FirstPage from './components/FirstPage'
-import WeatherActiveApp from './components/WeatherActiveApp'
+import { useState, useRef, useEffect } from 'react';
+import WeatherService from './API/WeatherService';
+import FirstPage from './components/FirstPage';
+import WeatherActiveApp from './components/WeatherActiveApp';
 
 function App() {
-  const [appIsActive, setAppIsActive] = useState(false)
+  const [appIsActive, setAppIsActive] = useState(false);
 
-  const [cityInput, setCityInput] = useState('')
+  const [cityInput, setCityInput] = useState('');
   const [city, setCity] = useState('');
   const [metric, setMetric] = useState(true);
 
   const [weatherData, setWeatherData] = useState({});
 
   const isFirstRender = useRef(true);
-  const isFirstSubmit = useRef(true)
+  const isFirstSubmit = useRef(true);
 
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
-  }
+    }
 
-  async function fetchData() {
+    async function fetchData() {
       try {
-          console.log('request')
-          const data = metric ? await WeatherService.getDataGeneral(city) : await WeatherService.getDataUS(city);
-          setWeatherData(data);
+        console.log('request');
+        const data = metric
+          ? await WeatherService.getDataGeneral(city)
+          : await WeatherService.getDataUS(city);
+        setWeatherData(data);
       } catch (e) {
-          console.log('error')
-          setWeatherData({})
+        console.log('error');
+        setWeatherData({});
       }
-  }
+    }
 
-    fetchData()
+    fetchData();
   }, [city, metric]);
 
   const handleCity = (e) => {
     if (isFirstSubmit) {
-      setAppIsActive(true)
+      setAppIsActive(true);
       isFirstSubmit.current = false;
     }
 
-    e.preventDefault()
-    setCity(cityInput.split('-').join(' '))
-    setCityInput('')
-  }
+    e.preventDefault();
+    setCity(cityInput.split('-').join(' '));
+    setCityInput('');
+  };
 
   return (
-      <div className="App">
-        <div className="container">
-
-          {appIsActive ? (
-            <WeatherActiveApp 
-              weatherData={weatherData} 
-              city={city}
-              cityInput={cityInput} 
-              setCityInput={setCityInput} 
-              handleCity={handleCity}
-            />
-          ) : (
-            <FirstPage 
-              cityInput={cityInput} 
-              setCityInput={setCityInput} 
-              handleCity={handleCity}
-            />
-          )}
-        </div>
+    <div className="App">
+      <div className="wrapper">
+        {appIsActive ? (
+          <WeatherActiveApp
+            weatherData={weatherData}
+            city={city}
+            cityInput={cityInput}
+            setCityInput={setCityInput}
+            handleCity={handleCity}
+          />
+        ) : (
+          <FirstPage cityInput={cityInput} setCityInput={setCityInput} handleCity={handleCity} />
+        )}
       </div>
-
+    </div>
   );
 }
 
