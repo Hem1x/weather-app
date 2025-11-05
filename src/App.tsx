@@ -1,8 +1,6 @@
-import { useState, useRef, useEffect, createContext } from 'react';
-import WeatherService from './API/WeatherService';
-import FirstPage from './components/FirstPage';
-import WeatherActiveApp from './components/WeatherActiveApp';
 import { IApi, handleCityType, setCityInputType } from '@types';
+import { createContext, useEffect, useRef, useState } from 'react';
+import WeatherService from './API/WeatherService';
 
 export const WeatherDataContext = createContext<IApi | undefined>(undefined);
 
@@ -54,19 +52,20 @@ function App() {
     fetchData();
   }, [city]);
 
-  const value = { cityInput: cityInput, handleCity: handleCity, setCityInput: setCityInput };
+  const value = {
+    cityInput: cityInput,
+    handleCity: handleCity,
+    setCityInput: setCityInput,
+  };
 
   return (
     <MyContext.Provider value={value}>
       <WeatherDataContext.Provider value={weatherData}>
         <div className="App">
-          <div className="wrapper">
-            {appIsActive && weatherData !== undefined ? (
-              <WeatherActiveApp weatherData={weatherData} />
-            ) : (
-              <FirstPage />
-            )}
-          </div>
+          <img
+            src="https://img.dmclk.ru/s1200x800q80/vitrina/owner/c9/39/c939d90028f84229ab8181842595105e.jpg"
+            alt=""
+          />
         </div>
       </WeatherDataContext.Provider>
     </MyContext.Provider>
