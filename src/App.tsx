@@ -63,7 +63,7 @@ function App() {
       <WeatherDataContext.Provider value={weatherData}>
         <div className="App">
           <img
-            src="https://img.dmclk.ru/s1200x800q80/vitrina/owner/c9/39/c939d90028f84229ab8181842595105e.jpg"
+            src="https://images.cdn-cian.ru/images/moments-moskva-jk-2109333842-10.jpg"
             alt=""
           />
         </div>
